@@ -40,6 +40,7 @@ rm /tmp/factorio.tar.gz
 dc_status "initialize factorio (--create)"
 ./bin/x64/factorio --create map --map-gen-settings ./settings/map-gen-settings.json --server-settings ./settings/server-settings.json
 mkdir saves
+mkdir mods
 
 rm -rf temp map.zip
 pushd data

@@ -11,4 +11,4 @@ RUN /bin/bash /var/setup.sh && rm /var/setup.sh /var/cprintf.sh
 
 EXPOSE 34197/udp
 ENTRYPOINT ["./bin/x64/factorio"]
-CMD ["--start-server-load-latest","--server-settings","./settings/server-settings.json"]
+CMD ["--start-server-load-latest","--server-settings","./settings/server-settings.json","--mod-directory","./mods"]
