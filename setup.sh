@@ -33,26 +33,18 @@ echo "${PACKAGE_HASH} */tmp/factorio.tar.gz" \
     | sha256sum -c --status -
 
 # extract binaries
-mkdir -p ${FACTORIO_DIR} ${FACTORIO_DATA_DIR}
-cd ${FACTORIO_DIR}
-
 dc_status "extracting server binaries..."
 tar -xf /tmp/factorio.tar.gz --strip-components=1
 rm /tmp/factorio.tar.gz
 
-# write path configuration file
-echo "config-path=${FACTORIO_DATA_DIR}/config" > config-path.cfg
-echo "use-system-read-write-data-directories=false" >> config-path.cfg
-
-rm -rf temp
-cd data
-rm *.example.json
-
 dc_status "initialize factorio (--create)"
-cd ${FACTORIO_DATA_DIR}
-${FACTORIO_DIR}/bin/x64/factorio --create map --map-gen-settings ./settings/map-gen-settings.json --server-settings ./settings/server-settings.json
+./bin/x64/factorio --create map --map-gen-settings ./settings/map-gen-settings.json --server-settings ./settings/server-settings.json
 mkdir saves
-rm map.zip
+
+rm -rf temp map.zip
+pushd data
+rm *.example.json
+popd
 
 # cleanup
 dc_status "uninstalling curl & friends..."

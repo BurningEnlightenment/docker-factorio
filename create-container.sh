@@ -27,7 +27,7 @@ hc_status "running ${IMAGE}:latest...\n"
 docker run  --cidfile="${CID_FILE}" \
             --name="${CONTAINER}" \
             -d -p=34197:34197/udp \
-            --volume=factorios-data:/var/factorio/:z \
+            --volume=factorio-map:/opt/factorio/saves:z \
             --restart=unless-stopped ${IMAGE}:latest
 
 exit_with_msg $?
