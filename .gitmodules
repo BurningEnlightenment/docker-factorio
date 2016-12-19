@@ -1,0 +1,4 @@
+[submodule "bash-lib"]
+	path = bash-lib
+	url = https://github.com/BurningEnlightenment/bash-utils.git
+	branch = master
