@@ -1,8 +1,8 @@
 FROM debian:stable
 
-ENV FACTORIO_VERSION=0.14.21 \
+ENV FACTORIO_VERSION=0.14.22 \
     FACTORIO_DIR="/opt/factorio" \
-    PACKAGE_HASH="9c2120c5ca15490ebe0fbbb13d23ce52cfa9d5643e329077da3ba0630876a42f"
+    PACKAGE_HASH="c46c499e0ec89b0c406abe01f121526efb9baad1b068692d85b8ceca0e6a8777"
 WORKDIR $FACTORIO_DIR
 
 COPY config/map-gen-settings.json config/server-settings.json ./settings/
